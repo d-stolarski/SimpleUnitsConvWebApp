@@ -21,16 +21,16 @@ public class DistanceConverterServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         CalcMeters calcMeters = new CalcMeters();
         writer.println("<h1>Podana wartość w przeliczeniu na:<br>");
-        if (meters == "" && centimeters == "" && milimeters == "") {
+        if (meters.equals("") && centimeters.equals("") && milimeters.equals("")) {
             writer.println("Nie wprowadzono żadnej warości.");
         } else {
-            if (centimeters == "" && milimeters == "") {
+            if (centimeters.equals("") && milimeters.equals("")) {
                 writer.println("<h2>metry: " + meters + "<br><br>");
                 double cent = calcMeters.countCentimetersFromMeters(meters);
                 writer.println("centymetry: " + cent + " <br><br>");
                 double mili = calcMeters.countMilimetersFromMeters(meters);
                 writer.println("milimetry: " + mili + " </h3>");
-            } else if (meters == "" && milimeters == "") {
+            } else if (meters.equals("") && milimeters.equals("")) {
                 writer.println("<h2>metry: " + calcMeters.countMetersFromCentimeters(centimeters) + "<br><br>");
                 writer.println("centymetry: " + centimeters + " <br><br>");
                 writer.println("milimetry: " + calcMeters.countMilimetersFromCentimeters(centimeters) + " </h3>");
